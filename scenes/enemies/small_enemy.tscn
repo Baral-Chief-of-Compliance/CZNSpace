@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://dac11b0uur7pn"]
+
+[ext_resource type="Texture2D" uid="uid://bn0etx8bunvbl" path="res://sprites/enemies/small_enemy.png" id="1_7xrgk"]
+[ext_resource type="Script" path="res://scenes/enemies/small_enemy.gd" id="1_c5jic"]
+[ext_resource type="Texture2D" uid="uid://dmqgocu73d4ye" path="res://animations/enemies/smallEnemyExplosion/smallEnemyExplosion1.png" id="3_uhd80"]
+[ext_resource type="Texture2D" uid="uid://qj3lfq663ork" path="res://animations/enemies/smallEnemyExplosion/smallEnemyExplosion2.png" id="4_qi1yh"]
+[ext_resource type="Texture2D" uid="uid://bvqvai8arqsan" path="res://animations/enemies/smallEnemyExplosion/smallEnemyExplosion3.png" id="5_gfvkr"]
+[ext_resource type="Texture2D" uid="uid://da0ltg3hf3xo3" path="res://animations/enemies/smallEnemyExplosion/smallEnemyExplosion4.png" id="6_uwhlw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mxthj"]
+radius = 15.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xoexs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uhd80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qi1yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gfvkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uwhlw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SmallEnemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_c5jic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_7xrgk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_mxthj")
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+
+[node name="ExplosionAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xoexs")
+frame_progress = 0.463187
+
+[connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]

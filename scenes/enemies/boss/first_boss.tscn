@@ -1,0 +1,136 @@
+[gd_scene load_steps=24 format=3 uid="uid://b2etd2kg3yx0a"]
+
+[ext_resource type="Script" path="res://scenes/enemies/boss/first_boss.gd" id="1_lahd5"]
+[ext_resource type="Texture2D" uid="uid://cdv772vdhw6dy" path="res://sprites/enemies/big_enemy.png" id="1_yv8se"]
+[ext_resource type="Texture2D" uid="uid://bp03fcc4bpm11" path="res://sprites/enemies/big_enemy_turbin.png" id="3_cse16"]
+[ext_resource type="Texture2D" uid="uid://bsou3b8yu7bcq" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation1.png" id="4_euqut"]
+[ext_resource type="Texture2D" uid="uid://vnrajcfcocv3" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation2.png" id="5_l5bam"]
+[ext_resource type="Texture2D" uid="uid://w4340getmm02" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation3.png" id="6_kceya"]
+[ext_resource type="Texture2D" uid="uid://c84rsmfnr10w6" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation4.png" id="7_f6m5p"]
+[ext_resource type="Texture2D" uid="uid://1fi3qdnla2s" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation5.png" id="8_lle5q"]
+[ext_resource type="Texture2D" uid="uid://ldjdyc23j6ou" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation6.png" id="9_m6n0g"]
+[ext_resource type="Texture2D" uid="uid://bacnxx2h6n5u6" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation7.png" id="10_e5mqx"]
+[ext_resource type="Texture2D" uid="uid://djwbn6rnxf6je" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation8.png" id="11_ufvgv"]
+[ext_resource type="Texture2D" uid="uid://mnnfh1kiv0ll" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation9.png" id="12_sahyd"]
+[ext_resource type="Texture2D" uid="uid://l8yg4mvqlbqb" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation10.png" id="13_xg7n2"]
+[ext_resource type="Texture2D" uid="uid://b8nrc1o86015y" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation11.png" id="14_mhrpu"]
+[ext_resource type="Texture2D" uid="uid://btasljx3u6yn7" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation12.png" id="15_3jc25"]
+[ext_resource type="Texture2D" uid="uid://bx64sdv4w8xe5" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation13.png" id="16_t8qp8"]
+[ext_resource type="Texture2D" uid="uid://bpksv3iug4tii" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation14.png" id="17_rfvp6"]
+[ext_resource type="Texture2D" uid="uid://bd3lfjfxhvutn" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation15.png" id="18_ynrak"]
+[ext_resource type="Texture2D" uid="uid://d4mayltoqb526" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation16.png" id="19_few5u"]
+[ext_resource type="Texture2D" uid="uid://emveds0wk0d" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation17.png" id="20_yqm3r"]
+[ext_resource type="Texture2D" uid="uid://dc8nl83rgsaw1" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation18.png" id="21_eo206"]
+[ext_resource type="Texture2D" uid="uid://buc068v5lwcds" path="res://animations/enemies/boss/first_boss/laser_attack/laser_attack_animation19.png" id="22_1k6m5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2vam"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_euqut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l5bam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kceya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f6m5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lle5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_m6n0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_e5mqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ufvgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sahyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xg7n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mhrpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3jc25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_t8qp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rfvp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ynrak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_few5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_yqm3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_eo206")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_1k6m5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="FirstBoss" type="CharacterBody2D" groups=["boss"]]
+scale = Vector2(12, 12)
+collision_layer = 2
+script = ExtResource("1_lahd5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("1_yv8se")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-9, 15, -10, 16, -12, 15, -14, 13, -16, 11, -16, 0, -11, -4, -16, -9, -16, -16, -15, -16, -10, -11, -10, -13, -8, -15, -6, -15, -4, -13, -1, -16, 1, -16, 4, -13, 6, -15, 8, -15, 10, -13, 10, -11, 15, -16, 16, -16, 16, -9, 11, -4, 16, 0, 16, 11, 11, 16, 10, 16, 7, 13, 7, 12, 10, 9, 11, 9, 10, 7, 5, 2, 5, 1, 1, 5, -1, 5, -5, 1, -5, 2, -10, 7, -11, 9, -10, 9, -7, 12, -7, 13, -10, 16)
+
+[node name="turbin" type="Sprite2D" parent="."]
+position = Vector2(0, -15.5)
+texture = ExtResource("3_cse16")
+
+[node name="leftLaserAim" type="Node2D" parent="."]
+visibility_layer = 2
+z_index = 2
+position = Vector2(-10.5, 13)
+
+[node name="Marker2D" type="Marker2D" parent="leftLaserAim"]
+
+[node name="rightLaserAim" type="Node2D" parent="."]
+position = Vector2(10.5, 13)
+
+[node name="Marker2D" type="Marker2D" parent="rightLaserAim"]
+
+[node name="mainLaserAim" type="Node2D" parent="."]
+position = Vector2(0, 5)
+
+[node name="Marker2D" type="Marker2D" parent="mainLaserAim"]
+
+[node name="TimerForLaserAim" type="Timer" parent="."]
+one_shot = true
+
+[node name="CoolDownAttack" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(7.45058e-08, 250)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_k2vam")
+frame_progress = 0.676456

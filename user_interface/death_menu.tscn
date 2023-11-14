@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=3 uid="uid://ossgskloeex6"]
+
+[ext_resource type="FontFile" uid="uid://dpl51xxuptasq" path="res://fonts/better-vcr5.1.ttf" id="1_cdhxb"]
+[ext_resource type="Script" path="res://user_interface/death_menu.gd" id="1_wi2rj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1enhl"]
+bg_color = Color(0.411765, 0.701961, 0.905882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6lfr"]
+bg_color = Color(0.384314, 0.517647, 0.905882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk2u2"]
+bg_color = Color(0.384314, 0.517647, 0.905882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmnp1"]
+bg_color = Color(0.811765, 0.270588, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbhey"]
+bg_color = Color(0.705882, 0.270588, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j16fe"]
+bg_color = Color(0.705882, 0.270588, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="DeathMenu" type="CanvasLayer"]
+script = ExtResource("1_wi2rj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GameOverLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.5
+offset_top = -31.5
+offset_right = 292.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_cdhxb")
+theme_override_font_sizes/font_size = 60
+text = "ИГРА ОКОНЧЕНА"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="Control"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 60.0
+offset_right = 88.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_cdhxb")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_1enhl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6lfr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rk2u2")
+text = "НАЧАТЬ СНАЧАЛА"
+
+[node name="Exit" type="Button" parent="Control"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 114.0
+offset_right = 150.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_cdhxb")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_pmnp1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vbhey")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j16fe")
+text = "ВЫЙТИ"
+
+[connection signal="pressed" from="Control/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/Exit" to="." method="_on_exit_pressed"]

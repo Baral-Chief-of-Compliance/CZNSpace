@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://qu03vbr5kx5b"]
+
+[ext_resource type="Script" path="res://user_interface/game_menu.gd" id="1_8f3hr"]
+[ext_resource type="Texture2D" uid="uid://cpo4hef0a3qj0" path="res://sprites/main_menu/MenuGame.png" id="1_u1hh3"]
+[ext_resource type="Texture2D" uid="uid://cq67eplh6xror" path="res://sprites/main_menu/GameLogo.png" id="2_pv813"]
+[ext_resource type="FontFile" uid="uid://dpl51xxuptasq" path="res://fonts/better-vcr5.1.ttf" id="3_7gsmg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ot2ni"]
+bg_color = Color(0.411765, 0.701961, 0.905882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8je5"]
+bg_color = Color(0.384314, 0.517647, 0.905882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4j1is"]
+bg_color = Color(0.384314, 0.517647, 0.905882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo41s"]
+bg_color = Color(0.811765, 0.270588, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlb48"]
+bg_color = Color(0.705882, 0.270588, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ljwy"]
+bg_color = Color(0.705882, 0.270588, 0.12549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="GameMenu" type="CanvasLayer"]
+script = ExtResource("1_8f3hr")
+
+[node name="backgroundMenu" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_u1hh3")
+
+[node name="logoMenu" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -345.0
+offset_top = -210.0
+offset_right = 345.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pv813")
+
+[node name="startGame" type="Button" parent="."]
+custom_minimum_size = Vector2(300, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 251.0
+offset_right = 150.0
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_7gsmg")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ot2ni")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v8je5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4j1is")
+text = "ИГРАТЬ"
+
+[node name="exit" type="Button" parent="."]
+custom_minimum_size = Vector2(300, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = 338.0
+offset_right = 41.5
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_7gsmg")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bo41s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlb48")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ljwy")
+text = "ВЫЙТИ"
+
+[connection signal="pressed" from="startGame" to="." method="_on_start_game_pressed"]

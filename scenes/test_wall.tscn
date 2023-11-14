@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://6qfits44m2ky"]
+
+[ext_resource type="Texture2D" uid="uid://cdv772vdhw6dy" path="res://sprites/enemies/big_enemy.png" id="1_4uqjp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2oy5"]
+size = Vector2(34, 33)
+
+[node name="testWall" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_y2oy5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4uqjp")

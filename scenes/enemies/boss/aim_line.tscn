@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://7slrmnva8nn3"]
+
+[ext_resource type="Script" path="res://scenes/enemies/boss/aim_line.gd" id="1_6bdwb"]
+
+[node name="Line2D" type="Line2D"]
+z_index = 1
+points = PackedVector2Array(0, 562, 0, 0, 0, 0, 0, 0)
+width = 1.0
+default_color = Color(0.694118, 0, 0, 1)
+script = ExtResource("1_6bdwb")

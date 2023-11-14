@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b2gtowl3ejega"]
+
+[node name="empty_enemy" type="Node2D"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dscjeb4kt3oc"]
+
+[ext_resource type="Texture2D" uid="uid://blsy78ap4x2st" path="res://sprites/czn_ship/healthPointIcon.png" id="1_xap32"]
+
+[node name="TextureRect" type="TextureRect"]
+custom_minimum_size = Vector2(60, 60)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_xap32")

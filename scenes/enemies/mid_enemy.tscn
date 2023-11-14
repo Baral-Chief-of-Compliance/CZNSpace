@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://d24npinb7bl4p"]
+
+[ext_resource type="Texture2D" uid="uid://c3yw2i76e0whq" path="res://sprites/enemies/mid_enemy.png" id="1_12j83"]
+[ext_resource type="Script" path="res://scenes/enemies/mid_enemy.gd" id="1_kp4mf"]
+[ext_resource type="Texture2D" uid="uid://cskwv3cjufv2w" path="res://animations/enemies/midEnemyExplosion/midEnemyExplosion1.png" id="3_q6pmi"]
+[ext_resource type="Texture2D" uid="uid://4unc7abg322m" path="res://animations/enemies/midEnemyExplosion/midEnemyExplosion2.png" id="4_qchrp"]
+[ext_resource type="Texture2D" uid="uid://koon0t3b1xw5" path="res://animations/enemies/midEnemyExplosion/midEnemyExplosion3.png" id="5_n2uko"]
+[ext_resource type="Texture2D" uid="uid://dv8fwl16rokmv" path="res://animations/enemies/midEnemyExplosion/midEnemyExplosion4.png" id="6_02lwo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcbu2"]
+size = Vector2(54, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ie3l8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_q6pmi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qchrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n2uko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_02lwo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MidEnemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_kp4mf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_12j83")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_lcbu2")
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ie3l8")
+
+[node name="leftGun" type="Node2D" parent="."]
+position = Vector2(-19, 10)
+
+[node name="Marker2D" type="Marker2D" parent="leftGun"]
+
+[node name="rightGun" type="Node2D" parent="."]
+position = Vector2(19, 10)
+
+[node name="Marker2D" type="Marker2D" parent="rightGun"]
+
+[node name="LaserTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ExplosionTimer" to="." method="_on_explosion_timer_timeout"]

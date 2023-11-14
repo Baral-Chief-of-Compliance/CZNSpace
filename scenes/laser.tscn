@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cy832n1gbv20i"]
+
+[ext_resource type="Script" path="res://scripts/czn_ship/laser.gd" id="1_5gd78"]
+[ext_resource type="Texture2D" uid="uid://b81qj7bhjvxbj" path="res://sprites/czn_ship/gun_fire.png" id="1_l5esm"]
+[ext_resource type="Texture2D" uid="uid://b0dnkyieaow58" path="res://animations/czn_ship/laserExplosion/explosionAnim1.png" id="3_07cqw"]
+[ext_resource type="Texture2D" uid="uid://b8uev1ckl072g" path="res://animations/czn_ship/laserExplosion/explosionAnim2.png" id="4_fogqe"]
+[ext_resource type="Texture2D" uid="uid://c7mcftv0axggq" path="res://animations/czn_ship/laserExplosion/explosionAnim3.png" id="5_0rcf1"]
+[ext_resource type="Texture2D" uid="uid://c3g8lvwbuw6d4" path="res://animations/czn_ship/laserExplosion/explosionAnim4.png" id="6_dob2h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cf4l1"]
+radius = 6.0
+height = 40.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3ad6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_07cqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fogqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0rcf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dob2h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Laser" type="Area2D"]
+z_index = 3
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_5gd78")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l5esm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_cf4l1")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="explosionTimer" type="Timer" parent="."]
+
+[node name="explosionAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_y3ad6")
+frame_progress = 0.566832
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="explosionTimer" to="." method="_on_explosion_timer_timeout"]

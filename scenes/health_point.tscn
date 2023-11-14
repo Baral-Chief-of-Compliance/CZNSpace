@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcbpncokws6me"]
+
+[ext_resource type="Script" path="res://scenes/health_point.gd" id="1_5rn7f"]
+[ext_resource type="Texture2D" uid="uid://blsy78ap4x2st" path="res://sprites/czn_ship/healthPointIcon.png" id="1_l31h7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjfmo"]
+size = Vector2(16, 14)
+
+[node name="HealthPoint" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_5rn7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xjfmo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l31h7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

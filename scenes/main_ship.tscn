@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://ccikjgwiq1k01"]
+
+[ext_resource type="Script" path="res://scenes/main_ship.gd" id="1_0kwo5"]
+[ext_resource type="Texture2D" uid="uid://dctsqoqnx4rg1" path="res://sprites/czn_ship/CZNShip1warForm.png" id="1_krsr8"]
+[ext_resource type="Texture2D" uid="uid://c13uvi3w2ja30" path="res://sprites/czn_ship/turbo_fire.png" id="2_ld335"]
+[ext_resource type="PackedScene" uid="uid://putyau8n04uh" path="res://user_interface/user_interface.tscn" id="4_edhc3"]
+[ext_resource type="Texture2D" uid="uid://b8gq1orpcoff7" path="res://sprites/czn_ship/deathAnimation/CZNShip1.png" id="5_vinwt"]
+[ext_resource type="Texture2D" uid="uid://c8tojbvk0nnja" path="res://sprites/czn_ship/deathAnimation/CZNShip2.png" id="6_nnvk1"]
+[ext_resource type="Texture2D" uid="uid://cf57jfv0wpw1o" path="res://sprites/czn_ship/deathAnimation/CZNShip3.png" id="7_y3bm3"]
+[ext_resource type="Texture2D" uid="uid://cffvf6dbyyrgr" path="res://sprites/czn_ship/deathAnimation/CZNShip4.png" id="8_beqdx"]
+[ext_resource type="PackedScene" uid="uid://ossgskloeex6" path="res://user_interface/death_menu.tscn" id="9_7veme"]
+[ext_resource type="Texture2D" uid="uid://dcusbv5imy564" path="res://sprites/czn_ship/CZNShip2warForm.png" id="10_amgy6"]
+[ext_resource type="Texture2D" uid="uid://mbsbo7fvdr5f" path="res://sprites/czn_ship/CZNShip3warForm.png" id="11_7fs06"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rvvmg"]
+radius = 11.0
+height = 22.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6lm2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_vinwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nnvk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y3bm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_beqdx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MainShip" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_0kwo5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("CapsuleShape2D_rvvmg")
+
+[node name="warForm1" type="Sprite2D" parent="."]
+texture = ExtResource("1_krsr8")
+
+[node name="turbin" type="Sprite2D" parent="."]
+position = Vector2(0, 14.5)
+texture = ExtResource("2_ld335")
+
+[node name="LaserTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="leftGun" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="leftGun"]
+position = Vector2(-5.5, -7)
+
+[node name="reightGun" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="reightGun"]
+position = Vector2(5.5, -7)
+
+[node name="UserInterface" parent="." instance=ExtResource("4_edhc3")]
+
+[node name="deathTimer" type="Timer" parent="."]
+
+[node name="deathAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_a6lm2")
+
+[node name="DeathMenu" parent="." instance=ExtResource("9_7veme")]
+visible = false
+
+[node name="warForm2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("10_amgy6")
+
+[node name="leftGunWarForm2" type="Node2D" parent="."]
+position = Vector2(-9.5, -1)
+
+[node name="Marker2D" type="Marker2D" parent="leftGunWarForm2"]
+
+[node name="rightGunWarForm2" type="Node2D" parent="."]
+position = Vector2(9.5, -1)
+
+[node name="Marker2D" type="Marker2D" parent="rightGunWarForm2"]
+
+[node name="warForm3" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("11_7fs06")
+
+[node name="mainGunWarForm3" type="Node2D" parent="."]
+position = Vector2(0, -17.5)
+
+[node name="Marker2D" type="Marker2D" parent="mainGunWarForm3"]
+
+[node name="leftGunWarFrom3" type="Node2D" parent="."]
+position = Vector2(-14.5, 1.5)
+
+[node name="Marker2D" type="Marker2D" parent="leftGunWarFrom3"]
+
+[node name="rightGunWarForm3" type="Node2D" parent="."]
+position = Vector2(14.5, 1.5)
+
+[node name="Marker2D" type="Marker2D" parent="rightGunWarForm3"]
+
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]
