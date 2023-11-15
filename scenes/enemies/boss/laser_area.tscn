@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcniu7psujmtj"]
+
+[ext_resource type="Script" path="res://scenes/enemies/boss/laser_area.gd" id="1_p76pm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6bo3"]
+size = Vector2(20, 205)
+
+[node name="laserArea" type="Area2D"]
+position = Vector2(512, 310)
+script = ExtResource("1_p76pm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -92.5)
+shape = SubResource("RectangleShape2D_p6bo3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

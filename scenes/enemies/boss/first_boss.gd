@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const LIFE = 500
+const LIFE = 10000
 const SPEED = 200
 
 
@@ -21,11 +21,15 @@ var aim_laser : PackedScene = preload("res://scenes/enemies/boss/aim_line.tscn")
 @onready var rightLasetAim = $rightLaserAim
 @onready var mainLaserAim = $mainLaserAim
 @onready var timerLaserAim = $TimerForLaserAim
+@onready var laserShotAnimation = $laserShotAnimation
+@onready var timeLaserShoot = $TimeForLaserShoot
+var laserArea : PackedScene = preload("res://scenes/enemies/boss/laser_area.tscn")
 
 
 func _ready():
 	coolDownAttack.wait_time = 20.0
-	timerLaserAim.wait_time = 10.0
+	timerLaserAim.wait_time = 4.0
+	timeLaserShoot.wait_time = 3.4
 
 
 func _process(delta):
@@ -48,7 +52,6 @@ func fire():
 	coolDownAttack.start()
 	
 	var function_number = randi_range(1,1)
-	print(function_number)
 	
 	if function_number == 1:
 		boss_attack_1()
@@ -79,10 +82,12 @@ func boss_attack_1():
 	laserAim1.rotation = 90
 	laserAim3.rotation = 180.2
 	
+	var lasers_enviroment = $lasers
 	
-	add_child(laserAim1)
+	
+	lasers_enviroment.add_child(laserAim1)
 	#add_child(laserAim2)
-	add_child(laserAim3)
+	lasers_enviroment.add_child(laserAim3)
 		
 #laser_attack
 func boss_attack_2():
@@ -95,3 +100,25 @@ func boss_attack_3():
 	
 func boss_attack_4():
 	pass
+
+
+func _on_timer_for_laser_aim_timeout():
+	timeLaserShoot.start()
+	laserShotAnimation.show()
+	laserShotAnimation.play()
+	var laserAreaInst = laserArea.instantiate() as Area2D
+	laserAreaInst.position = mainLaserAim.position
+	add_child(laserAreaInst)
+	
+	var lasers_enviroment = $lasers
+	var childrens = lasers_enviroment.get_children()
+	
+	for ch in childrens:
+		ch.queue_free()
+
+
+
+func _on_time_for_laser_shoot_timeout():
+	laserShotAnimation.hide()
+	laserShotAnimation.stop()
+	
