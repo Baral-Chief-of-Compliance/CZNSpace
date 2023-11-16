@@ -8,15 +8,7 @@ extends CanvasLayer
 @onready var helathPointRaw = $Control2/health_point_raw
 var health_point : PackedScene = preload("res://user_interface/health_point.tscn")
 
-
-#BOSS_INFORMATION
-@onready var boss : CharacterBody2D = get_tree().get_first_node_in_group("boss")
-@onready var progressBar = $Control3/ProgressBar
-
-
-
-
-
+@onready var progressBar = $bossInfo/ProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,7 +23,25 @@ func _ready():
 func _process(delta):
 	countScore.text =  str(Globals.player_score)
 	
-	print(boss.LIFE)
+	if Globals.player_state == Globals.BOSS_ATTACK:
+		#BOSS_INFORMATION
+		var bossInfo = $bossInfo
+		bossInfo.show()
+		var boss : CharacterBody2D = get_tree().get_first_node_in_group("boss")
+		
+		var bossLabel = $bossInfo/Label
+		bossLabel.text = boss.NAME
+		
+		var bossProgressBar = $bossInfo/ProgressBar
+		bossProgressBar.max_value = boss.LIFE
+		bossProgressBar.value = boss.health_point
+		
+	else:
+		var bossInfo = $bossInfo
+		bossInfo.hide()
+		
+		
+		#print(boss.LIFE)
 	
 	
 

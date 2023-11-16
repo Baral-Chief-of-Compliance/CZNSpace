@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkw13ogaxuxd2"]
+
+[ext_resource type="Script" path="res://scenes/enemies/boss/bluster_turel.gd" id="1_l4dtl"]
+
+[node name="blusterTurel" type="Node2D"]
+script = ExtResource("1_l4dtl")
+
+[node name="laserSpawnPoint" type="Marker2D" parent="."]
+
+[node name="blusterRate" type="Timer" parent="."]
+one_shot = true
