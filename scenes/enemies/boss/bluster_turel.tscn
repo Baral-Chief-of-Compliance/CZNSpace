@@ -8,4 +8,8 @@ script = ExtResource("1_l4dtl")
 [node name="laserSpawnPoint" type="Marker2D" parent="."]
 
 [node name="blusterRate" type="Timer" parent="."]
-one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 120)
+
+[connection signal="timeout" from="blusterRate" to="." method="_on_bluster_rate_timeout"]

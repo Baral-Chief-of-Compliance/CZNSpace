@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b2etd2kg3yx0a"]
+[gd_scene load_steps=46 format=3 uid="uid://b2etd2kg3yx0a"]
 
 [ext_resource type="Script" path="res://scenes/enemies/boss/first_boss.gd" id="1_lahd5"]
 [ext_resource type="Texture2D" uid="uid://cdv772vdhw6dy" path="res://sprites/enemies/big_enemy.png" id="1_yv8se"]
@@ -43,7 +43,6 @@
 [ext_resource type="Texture2D" uid="uid://ba6ckby4bwy64" path="res://animations/enemies/bigEnemeyExplosion/big_enemy2.png" id="41_rmbtw"]
 [ext_resource type="Texture2D" uid="uid://d3sje6llpxagh" path="res://animations/enemies/bigEnemeyExplosion/big_enemy3.png" id="42_3itmr"]
 [ext_resource type="Texture2D" uid="uid://dtcwe33fjbwq3" path="res://animations/enemies/bigEnemeyExplosion/big_enemy4.png" id="43_jicol"]
-[ext_resource type="PackedScene" uid="uid://dkw13ogaxuxd2" path="res://scenes/enemies/boss/bluster_turel.tscn" id="44_qn0eo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k2vam"]
 animations = [{
@@ -297,8 +296,6 @@ position = Vector2(13, 13)
 
 [node name="blusterRate" type="Timer" parent="."]
 one_shot = true
-
-[node name="blusterTurel" parent="." instance=ExtResource("44_qn0eo")]
 
 [connection signal="timeout" from="TimerForLaserAim" to="." method="_on_timer_for_laser_aim_timeout"]
 [connection signal="timeout" from="TimeForLaserShoot" to="." method="_on_time_for_laser_shoot_timeout"]

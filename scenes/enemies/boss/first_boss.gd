@@ -139,12 +139,14 @@ func boss_attack_1():
 		
 #bluster_attack
 func boss_attack_2():
-	#var parent = get_parent()
+	var parent = get_parent()
 	
-	#for turel_point in blusterSpawnPoints:
-	#	var turel = turelScene.instantiate()
-	#	turel.position = turel_point.global_position
-	#	add_child(turel)
+	for turel_point in blusterSpawnPoints:
+		var turel = turelScene.instantiate()
+		turel.scale.y = 0.2
+		turel.scale.x = 0.2
+		turel.position = turel_point.position
+		add_child(turel)
 		print("turel is created")
 
 	

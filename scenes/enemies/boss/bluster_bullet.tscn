@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjgtcjhuf3rny"]
+
+[ext_resource type="Script" path="res://scenes/enemies/boss/bluster_bullet.gd" id="1_ixer3"]
+[ext_resource type="Texture2D" uid="uid://cktdmrg1mxyr2" path="res://sprites/enemies/boss/first_boss/bluster_attack/bluster_attack.png" id="1_u2fur"]
+
+[node name="blusterBullet" type="Area2D"]
+script = ExtResource("1_ixer3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u2fur")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
