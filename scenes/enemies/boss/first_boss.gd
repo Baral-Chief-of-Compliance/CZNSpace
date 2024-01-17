@@ -99,7 +99,7 @@ func fire():
 	
 	coolDownAttack.start()
 	
-	var function_number = randi_range(2,2)
+	var function_number = randi_range(1,2)
 	
 	if function_number == 1:
 		boss_attack_1()

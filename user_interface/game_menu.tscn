@@ -110,3 +110,4 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_4ljwy")
 text = "ВЫЙТИ"
 
 [connection signal="pressed" from="startGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

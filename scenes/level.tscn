@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://gsymo4gvlag"]
+[gd_scene load_steps=8 format=3 uid="uid://gsymo4gvlag"]
 
 [ext_resource type="PackedScene" uid="uid://ccikjgwiq1k01" path="res://scenes/main_ship.tscn" id="1_43p5p"]
 [ext_resource type="PackedScene" uid="uid://ckknau8e22tt5" path="res://scenes/space.tscn" id="1_kmic2"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ditxjqdjr2pnq" path="res://scenes/enemies/enemy_spawner.tscn" id="4_4dkfk"]
 [ext_resource type="PackedScene" uid="uid://ch4vbhqu6htkk" path="res://scenes/bonus_for_czn_ship/health_spawner.tscn" id="5_o6210"]
 [ext_resource type="PackedScene" uid="uid://bciex4537akrn" path="res://scenes/bonus_for_czn_ship/war_form_bonus_spawner.tscn" id="6_vm2tw"]
-[ext_resource type="PackedScene" uid="uid://b2etd2kg3yx0a" path="res://scenes/enemies/boss/first_boss.tscn" id="7_cbv7e"]
 [ext_resource type="PackedScene" uid="uid://dkw13ogaxuxd2" path="res://scenes/enemies/boss/bluster_turel.tscn" id="8_wt5rd"]
 
 [node name="level" type="Node2D"]
@@ -26,9 +25,6 @@ script = ExtResource("3_e6ea5")
 [node name="HealthSpawner" parent="." instance=ExtResource("5_o6210")]
 
 [node name="WarFormBonusSpawner" parent="." instance=ExtResource("6_vm2tw")]
-
-[node name="FirstBoss" parent="." instance=ExtResource("7_cbv7e")]
-position = Vector2(945, 291)
 
 [node name="blusterTurel" parent="." instance=ExtResource("8_wt5rd")]
 position = Vector2(1048, 864)
